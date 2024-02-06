@@ -1,2 +1,2 @@
-# NY Times Article Scrapper - Godfred Adjei-Darko
-## Project scraps NY Times articles
+# BBC News Article Scrapper - Godfred Adjei-Darko
+## Project scraps BBC news articles
