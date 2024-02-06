@@ -50,7 +50,7 @@ def soup_scrap(article_links):
                     if i < len(tags) - 1:
                         article_tag+=", "
                 output_file.write("Tags: " + article_tag + "\n")
-            print(f"article {index+1} scrapped, outpit in {output_filename}")
+            print(f"article {index+1} scrapped, output in {output_filename}")
         else:
             print(f"Failed to retrieve the page. Status code: {response.status_code}")
 
