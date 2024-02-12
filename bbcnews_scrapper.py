@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-
+import json
 # Read in file with article links and return
 def read_file():
     filename = input("Enter the filename: ")
