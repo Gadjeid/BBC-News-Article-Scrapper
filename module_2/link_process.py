@@ -3,6 +3,10 @@ import requests
 import os
 import json
 # Take article links and article scrap to .txt file, returns nothing
+# Single Responsibilty Principle & Open-Closed Principle, module recieves the links and processes them
+# and outputs to .txt files. As a result, the code is concise and cohesive with the rest of the program.
+# Futhermore, if I wanted to add new functionality or add to the file output, doing so in this module
+# wouldn't affect the rest of the program (open closed)
 def soup_scrap(article_links):
     for index, link in enumerate(article_links, 0):
         # Make a request to each article link
@@ -22,14 +26,14 @@ def soup_scrap(article_links):
             article = soup.find_all('p')
 
             # Removing unnecessary information, cleaning up output
-            for p_tag in soup.find_all('p', class_='video__endslate-solo-countdown'):
-                p_tag.decompose()
-            for p_tag in soup.find_all('p', class_='video__endslate-countdown'):
-                p_tag.decompose()
-            for p_tag in soup.find_all('p', class_='video__endslate-solo-title'):
-                p_tag.decompose()
-            for p_tag in soup.find_all('p', class_='video__endslate-title video__endslate-title_primary_true'):
-                p_tag.decompose()
+            classes_to_remove = ['video__endslate-solo-countdown', 
+                     'video__endslate-countdown', 
+                     'video__endslate-solo-title', 
+                     'video__endslate-title video__endslate-title_primary_true']
+
+            for class_name in classes_to_remove:
+                for p_tag in soup.find_all('p', class_=class_name):
+                    p_tag.decompose()
 
             # Specify the folder path
             output_folder = "Data/processed"
@@ -46,26 +50,14 @@ def soup_scrap(article_links):
 
             # Print all for each article (headline, author, summary, article)
             with open(output_filename, 'w') as output_file:
-                if headline:
-                    headline_text = headline.text.strip()
-                else:
-                    headline_text = "No Headline"
-                
-                if author:
-                    author_text = author.text.strip()
-                else:
-                    author_text = "No Author"
-                
-                if summary:
-                    summary_text = summary.text.strip()
-                else:
-                    summary_text = "No Summary"
-                
+                headline_text = headline.text.strip() if headline else "No Headline"
+                author_text = author.text.strip() if author else "No Author"
+                summary_text = summary.text.strip() if summary else "No Summary"
+
                 headline_file = "Headline: " + headline_text + "\n"
                 author_file = author_text + "\n"
                 summary_file = "Summary: " + summary_text + "\n"
-                
-                
+            
                 output_file.write(headline_file)
                 output_file.write(author_file)
                 output_file.write(summary_file)
