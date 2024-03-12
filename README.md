@@ -1,5 +1,5 @@
 # BBC News Article Scrapper - Godfred Adjei-Darko
-
+# OUTDATED, DISREGARD AND GO TO BRANCH
 The **BBC News Article Scraper** is a Python file that reads a file containing article links, retrieves the content of each article, and saves the information (headline, summary, article text, and tags) to individual text files in numerical order (from 1).
 
 ## Prerequisites
