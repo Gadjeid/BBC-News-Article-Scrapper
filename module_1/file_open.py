@@ -6,8 +6,9 @@ import json
 def read_file():            
     try:
         filename = input("Enter the filename: ")
-        output_folder = "Data/unprocessed"
-        new_filename = os.path.join(output_folder, filename)
+        # Set up input folder and process
+        input_folder = "Data/unprocessed"
+        new_filename = os.path.join(input_folder, filename)
         with open(new_filename, 'r') as file:
             article_links = [line.strip() for line in file.readlines()]
             return article_links

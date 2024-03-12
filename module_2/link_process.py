@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import os
 import json
-# Take article links and return nothing and output articles
+# Take article links and article scrap to .txt file, returns nothing
 def soup_scrap(article_links):
     for index, link in enumerate(article_links, 0):
         # Make a request to each article link
@@ -21,6 +21,7 @@ def soup_scrap(article_links):
             summary = soup.find('div', class_="article__summary")
             article = soup.find_all('p')
 
+            # Removing unnecessary information, cleaning up output
             for p_tag in soup.find_all('p', class_='video__endslate-solo-countdown'):
                 p_tag.decompose()
             for p_tag in soup.find_all('p', class_='video__endslate-countdown'):

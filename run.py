@@ -1,3 +1,6 @@
+# Run.py file that imports the other modules and runs the file
+# Calls module 1 to read file and module 2 to process links from file
+
 from module_1 import file_open as file_read
 from module_2 import link_process as process
 def main():
