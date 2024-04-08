@@ -3,6 +3,7 @@ import os
 from openai import OpenAI
 client = OpenAI(api_key="ADD API KEY HERE")
 
+# For summary using open ai, prompt given and summary is returned
 def summarize(article_text):
     completion = client.chat.completions.create(
     model="gpt-3.5-turbo",
@@ -15,11 +16,13 @@ def summarize(article_text):
     return summary
 
 def summarize_articles():
+    # Create output location if not already present
     output_folder = 'Data/processed/summaries'
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
     articles_path = 'Data/processed'
+    # Iterate through list with articles in Data/processed if it ends in .txt
     for index, file_name in enumerate(os.listdir(articles_path), start=1):
         if file_name.endswith('.txt'):
             with open(os.path.join(articles_path, file_name), 'r') as file:
@@ -27,11 +30,13 @@ def summarize_articles():
                 title = None
                 content = ""
                 for line in lines:
+                    # Save headline for output
                     if line.startswith("Headline: "):
                         title = line[len("Headline: "):].strip()
                     else:
                         content += line
                 if title is not None:
+                    # Summarize if title is found and output title and summary to .txt file in output folder
                     summary = summarize(content)
 
                     summary_file_path = os.path.join(output_folder, f'article_{index}_summary.txt')
