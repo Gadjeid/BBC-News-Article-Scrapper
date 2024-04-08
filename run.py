@@ -5,12 +5,16 @@
 
 from module_1 import file_open as file_read
 from module_2 import link_process as process
+from module_3 import ai_summary as summary
 def main():
     article_links = file_read.read_file()
     if article_links:
         process.soup_scrap(article_links)
+        summary.summarize_articles()
     else:
         print("No article links found.")
+
+    
 
 if __name__ == "__main__":
     main()

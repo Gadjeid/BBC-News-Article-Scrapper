@@ -7,6 +7,12 @@ import json
 # and outputs to .txt files. As a result, the code is concise and cohesive with the rest of the program.
 # Futhermore, if I wanted to add new functionality or add to the file output, doing so in this module
 # wouldn't affect the rest of the program (open closed)
+
+def clean_text(text):
+    # Remove any special characters that may cause issues
+    clean_text = ''.join(e for e in text.encode('ascii', 'ignore').decode('ascii') if e.isalnum() or e.isspace())
+    return clean_text
+
 def soup_scrap(article_links):
     for index, link in enumerate(article_links, 0):
         # Make a request to each article link
@@ -39,6 +45,9 @@ def soup_scrap(article_links):
             output_folder = "Data/processed"
             raw_html = "Data/unprocessed"
 
+            if not os.path.exists(output_folder):
+                os.makedirs(output_folder)
+
             # Set up file output location
             output_filename = os.path.join(output_folder, f"article_{index+1}.txt")    
             output_raw = os.path.join(raw_html, f"raw_{index+1}.txt")            
@@ -57,6 +66,9 @@ def soup_scrap(article_links):
                 headline_file = "Headline: " + headline_text + "\n"
                 author_file = author_text + "\n"
                 summary_file = "Summary: " + summary_text + "\n"
+
+                clean_text(headline_file)
+                clean_text(summary_file)
             
                 output_file.write(headline_file)
                 output_file.write(author_file)
@@ -64,7 +76,7 @@ def soup_scrap(article_links):
 
                 content=""
                 for a in article:
-                    content+= str(a.text.strip()) + " "
+                    content+= clean_text(str(a.text.strip())) + " "
                 output_file.write("Article: " + content + "\n")
             print(f"article {index+1} scrapped, output in {output_folder}")
         else:
