@@ -42,3 +42,12 @@ First, create a .txt with all the ksdk news article links (new line terminated).
 2. In the vscode terminal, type "python run.py". You will be prompted to input the .txt file name. Input the full file name (example: articles.txt) If the file is invalid, "File XYZ is not found" will be printed meaning your cannot be found. 
 
 3. Next, all the articles links will be processed and output to individual .txt files starting from article_1.txt in the Data/processed folder. If a link is invalid, the link will be skipped with an output message and the other files will be created.
+
+## OpenAI Article Summary
+In order to properly create an OpenAI summay of an article, you must first 
+
+1. Add your api key (from https://platform.openai.com/api-keys). You must create an account (or log in), and create an Api Key.
+
+2. Put your Api Key into "ai_summary.py" located in "module_3". On line four, which has "client = OpenAI(api_key="ADD API KEY HERE")", replace "ADD API KEY HERE" with your Api Key in quotation marks (" ").
+
+After completeing these steps, the ai summary will be generated when running the program with the text prompt "Summary for "artile #" saved to some file path"
