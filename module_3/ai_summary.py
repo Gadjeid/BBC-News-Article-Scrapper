@@ -1,7 +1,7 @@
 # Import openai (to make use of the LLM) and supply an API key
 import os
 from openai import OpenAI
-client = OpenAI(api_key="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")
+client = OpenAI(api_key="")
 
 def summarize(article_text):
     completion = client.chat.completions.create(
