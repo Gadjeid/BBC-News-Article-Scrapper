@@ -19,6 +19,7 @@ def soup_scrap(article_links):
         response = requests.get(link)
 
         # Check if the request was successful (status code 200)
+        # Test case 3: if-else link validation
         if response.status_code == 200:
             # If found, parse
             soup = BeautifulSoup(response.text, 'html.parser')
