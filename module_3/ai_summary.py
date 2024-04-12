@@ -46,6 +46,7 @@ def summarize_articles():
                     with open(summary_file_path, 'w') as summary_file:
                         summary_file.write(f"Headline: {title}\n")
                         summary_file.write(summary)
+                        # Test case 8: Output file check 2
                         if os.path.exists(summary_file_path):
                             print(f"article {index} scrapped, output in {output_folder}")
                         else:
