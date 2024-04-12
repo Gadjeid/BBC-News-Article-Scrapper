@@ -79,6 +79,10 @@ def soup_scrap(article_links):
                 for a in article:
                     content+= clean_text(str(a.text.strip())) + " "
                 output_file.write("Article: " + content + "\n")
-            print(f"article {index+1} scrapped, output in {output_folder}")
+                
+                if os.path.exists(output_filename):
+                    print(f"article {index+1} scrapped, output in {output_folder}")
+                else:
+                    print(f"Failed to save summary for artcilee {index+1}")
         else:
             print(f"Failed to retrieve the page. Status code: {response.status_code}")
