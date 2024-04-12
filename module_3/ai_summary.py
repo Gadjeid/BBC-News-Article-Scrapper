@@ -18,6 +18,8 @@ def summarize(article_text):
 def summarize_articles():
     # Create output location if not already present
     output_folder = 'Data/processed/summaries'
+    
+    #Test case 6 - if statement for folder verification / creation
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
