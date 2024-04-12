@@ -46,6 +46,9 @@ def summarize_articles():
                     with open(summary_file_path, 'w') as summary_file:
                         summary_file.write(f"Headline: {title}\n")
                         summary_file.write(summary)
-                        print(f'Summary for "artile {index}" saved to {summary_file_path}.')
+                        if os.path.exists(summary_file_path):
+                            print(f"article {index} scrapped, output in {output_folder}")
+                        else:
+                            print(f"Failed to save summary for artcile {index}")
 
 
