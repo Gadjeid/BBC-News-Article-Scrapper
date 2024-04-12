@@ -8,6 +8,7 @@ from module_2 import link_process as process
 from module_3 import ai_summary as summary
 def main():
     article_links = file_read.read_file()
+    # Test case 2: Check if article_links are read
     if article_links:
         process.soup_scrap(article_links)
         summary.summarize_articles()
