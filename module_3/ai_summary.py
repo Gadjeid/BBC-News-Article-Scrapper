@@ -31,6 +31,7 @@ def summarize_articles():
                 lines = file.readlines()
                 title = None
                 content = ""
+                #Test case 7 - if-else statement for headline verification
                 for line in lines:
                     # Save headline for output
                     if line.startswith("Headline: "):
