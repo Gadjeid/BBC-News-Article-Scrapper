@@ -45,7 +45,7 @@ def soup_scrap(article_links):
             # Specify the folder path
             output_folder = "Data/processed"
             raw_html = "Data/unprocessed"
-
+            # Test case 4: Output folder check
             if not os.path.exists(output_folder):
                 os.makedirs(output_folder)
 
