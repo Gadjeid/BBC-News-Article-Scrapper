@@ -37,7 +37,7 @@ Double check with conda env list to ensure that the scrapper environment has bee
 
 1. Create .txt file with links
 First, create a .txt with all the ksdk news article links (new line terminated). See the "articles.txt" for an example.
-* Note, you can also use the articles.txt file and just replace the links with your links
+   * Note, you can also use the articles.txt file and just replace the links with your links
 
 2. In the vscode terminal, type "python run.py". You will be prompted to input the .txt file name. Input the full file name (example: articles.txt) If the file is invalid, "File XYZ is not found" will be printed meaning your cannot be found. 
 
