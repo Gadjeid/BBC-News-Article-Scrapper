@@ -11,7 +11,9 @@ def main():
     # Test case 2: Check if article_links are read
     if article_links:
         process.soup_scrap(article_links)
-        summary.summarize_articles()
+        next_step = input("Summarize with OpenAI? (Y / N): ")
+        if next_step == 'Y':
+            summary.summarize_articles()
     else:
         print("No article links found.")
 
