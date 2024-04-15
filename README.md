@@ -33,15 +33,26 @@ In the Conda command console, type `conda env create -f requirements.yaml`. The 
 
 ## Program Steps
 
-1. **Create .txt file with links**: First, create a .txt file with all the KSDK news article links (new line terminated). See the "articles.txt" for an example. Note, you can also use the articles.txt file and just replace the links with your links.
+1. **Create .txt file with links**: First, create a .txt file with all the KSDK news article links (new line terminated) and ensure that this .txt file is present in 'Data/unprocessed'. See the "articles.txt" for an example. Note, you can also use the articles.txt file and just replace the links with your links.
+
 2. **Run the program**: In the VS Code terminal, type `python run.py`. You will be prompted to input the .txt file name. Input the full file name (example: articles.txt). If the file is invalid, "File XYZ is not found" will be printed, meaning your file cannot be found. 
-3. **Process the articles**: Next, all the article links will be processed and output to individual .txt files starting from article_1.txt in the Data/processed folder. If a link is invalid, the link will be skipped with an output message and the other files will be created.
+
+3. **Process the articles**: Next, all the article links will be processed and output to individual .txt files starting from article_1.txt in the `Data/processed`. If a link is invalid, the link will be skipped with an output message "Failed to retrieve the page. Status code: " and the program will continue with the following link in the .txt file. If the link is scrapped, the output message "article # scrapped, output in" (Data/processed) will be printed. 
 
 ## OpenAI Article Summary
 
-To properly create an OpenAI summary of an article, you must first:
+After all the article links are processed, the prompt "Summarize with OpenAI? (Y / N): " will be displayed to have an OpenAI summary created for all scrapped articles in `Data/processed`. Prior to this, however, to properly create an OpenAI summary of an article, you must first:
 
-1. Add your API key (from [OpenAI API Keys](https://platform.openai.com/api-keys)). You must create an account (or log in), and create an API Key.
-2. Put your API Key into "ai_summary.py" located in "module_3". On line four, which has `client = OpenAI(api_key="ADD API KEY HERE")`, replace "ADD API KEY HERE" with your API Key in quotation marks (" ").
+1. You must create an account (or log in) to [openAI](https://openai.com).
 
-After completing these steps, the AI summary will be generated when running the program with the text prompt "Summary for article # saved to some file path".
+https://github.com/Gadjeid/KSDK-News-Article-Scrapper/assets/157090613/d9612f6c-8d1d-4353-99aa-b3ca9190c946
+
+1. Create an API key (from [OpenAI API Keys](https://platform.openai.com/api-keys)). You **must** save/copy this API Key to properly use the OpenAI summary.
+
+https://github.com/Gadjeid/KSDK-News-Article-Scrapper/assets/157090613/f72ac60d-f770-4759-a29c-80da0cc89d9d
+
+2. Put your API Key into "ai_summary.py" located in "module_3". On line 4, which has `client = OpenAI(api_key="ADD API KEY HERE")`, replace "ADD API KEY HERE" with your API Key in quotation marks (" ").
+   
+![image](https://github.com/Gadjeid/KSDK-News-Article-Scrapper/assets/157090613/72e2c32b-b949-46ac-a778-fe92aa3f8a76)
+
+After completing these steps, the AI summary will be generated when running the program and inputting `Y` when prompted, displaying "Summary for article # saved to some file path" if completed sucessfully. If an error occurs, "Failed to save summary for article #" will be displayed instead.
