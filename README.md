@@ -4,10 +4,10 @@ The **KSDK News Article Scraper** is a Python file that reads a file containing 
 
 ## Prerequisites
 
-1. Python 
-Ensure you have python installed. You can find the python download at [www.python.org/downloads/](https://www.python.org/downloads//)
+1. Python
+* Ensure you have python installed. You can find the python download at [www.python.org/downloads/](https://www.python.org/downloads//)
 
-2. Conda 
+3. Conda 
 In order to set up the scrapper environment needed for the article scrapper, anaconda/miniconda is required. 
 You can find miniconda at https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html, along with instructions on 
 how to set up miniconda on windows, macOS, and linux
