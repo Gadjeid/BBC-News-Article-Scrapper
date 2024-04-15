@@ -51,7 +51,7 @@ https://github.com/Gadjeid/KSDK-News-Article-Scrapper/assets/157090613/d9612f6c-
 
 https://github.com/Gadjeid/KSDK-News-Article-Scrapper/assets/157090613/f72ac60d-f770-4759-a29c-80da0cc89d9d
 
-2. Put your API Key into "ai_summary.py" located in "module_3". On line 4, which has `client = OpenAI(api_key="ADD API KEY HERE")`, replace "ADD API KEY HERE" with your API Key in quotation marks (" ").
+2. Put your API Key into `ai_summary.py` located in `module_3`. On line 4, which has `client = OpenAI(api_key="ADD API KEY HERE")`, replace "ADD API KEY HERE" with your API Key in quotation marks (" ").
    
 ![image](https://github.com/Gadjeid/KSDK-News-Article-Scrapper/assets/157090613/72e2c32b-b949-46ac-a778-fe92aa3f8a76)
 
