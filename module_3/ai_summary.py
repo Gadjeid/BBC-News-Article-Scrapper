@@ -50,6 +50,6 @@ def summarize_articles():
                         if os.path.exists(summary_file_path):
                             print(f"article {index} scrapped, output in {output_folder}")
                         else:
-                            print(f"Failed to save summary for artcile {index}")
+                            print(f"Failed to save summary for article {index}")
 
 
