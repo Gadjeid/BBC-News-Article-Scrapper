@@ -12,7 +12,7 @@ def main():
     if article_links:
         process.soup_scrap(article_links)
         next_step = input("Summarize with OpenAI? (Y / N): ")
-        if next_step == 'Y':
+        if next_step.lower() == 'y':
             summary.summarize_articles()
     else:
         print("No article links found.")
